@@ -25,9 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   getWeatherDatas(cityName: string): void {
     this.weatherService.getWeatherDatas(cityName).pipe(takeUntil(this.destroy$)).subscribe({
       next: (response) => {
-        console.log(response);
         response && (this.weatherDatas = response);
-        console.log(this.weatherDatas.name);
       },
       error: (error) => console.log(error),
     });
@@ -36,6 +34,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   //Método que faz a pesquisa da cidade:
   onSubmit():void {
     this.getWeatherDatas(this.initialCityName);
+    console.log(this.weatherDatas);
     this.initialCityName = "";
   }
 
