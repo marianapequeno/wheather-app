@@ -10,6 +10,7 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { } //Injeção de dependência
 
+  //Método que consome a API de previsão do tempo: 
   getWeatherDatas(cityName: string): Observable<any> {
     return this.http.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&mode=json&appid=${this.apiKey}`, {})
   }
