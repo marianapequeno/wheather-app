@@ -7,7 +7,7 @@ import { WeatherService } from 'src/app/shared/services/weather/weather.service'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: [],
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private readonly destroy$: Subject<void> = new Subject();//Para fechar o observable 'subscribe' e não ocorrer 'memory leak'
@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   //Método que faz a pesquisa da cidade:
   onSubmit():void {
     this.getWeatherDatas(this.initialCityName);
-    console.log(this.weatherDatas);
     this.initialCityName = "";
   }
 

@@ -1,0 +1,66 @@
+<div class="container" *ngIf="weatherDatasInput">
+  <div class="upper-data">
+    <img
+      src="../../../../assets/sun.jpg"
+      alt="Sunny day"
+      *ngIf="weatherDatasInput.main.temp > 15"
+    />
+    <img
+      src="../../../../assets/cold1.jpg"
+      alt="Cold weather"
+      *ngIf="weatherDatasInput.main.temp <= 15"
+    />
+
+    <div class="weather-data">
+      <div class="location">{{ weatherDatasInput.name }}</div>
+      <div class="temperature">
+        {{ weatherDatasInput.main.temp | number: "1.0-0" }}°C
+      </div>
+    </div>
+  </div>
+
+  <div class="lower-data">
+    <p class="more-info-label">Mais informações</p>
+    <div class="more-info-container">
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="minTemperatureIcon"></fa-icon>
+          <p>Mínima</p>
+        </div>
+        <div class="info-block-value">
+          {{ weatherDatasInput.main.temp_min | number: "1.0-0" }}°C
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="maxTemperatureIcon"></fa-icon>
+          <p>Máxima</p>
+        </div>
+        <div class="info-block-value">
+          {{ weatherDatasInput.main.temp_max | number: "1.0-0" }}°C
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="humidityIcon"></fa-icon>
+          <p>Umidade</p>
+        </div>
+        <div class="info-block-value">
+          {{ weatherDatasInput.main.humidity }}%
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="windIcon"></fa-icon>
+          <p>Vento</p>
+        </div>
+        <div class="info-block-value">
+          {{ weatherDatasInput.wind.speed }}km/h
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
