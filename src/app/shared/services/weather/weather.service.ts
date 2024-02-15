@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root' // Indica que é um serviço global, ou singleton
 })
 export class WeatherService {
-  private apiKey = "d014d8490d50ec2b9893ae9fed6b100b";
+  private apiKey = "6382bcc26479515eedc5eecb7474992f";
 
   constructor(private http: HttpClient) { } //Injeção de dependência
 
